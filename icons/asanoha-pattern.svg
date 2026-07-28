@@ -1,0 +1,33 @@
+<!-- Asanoha (Hemp-Leaf) Pattern - Seamless Background Tile -->
+<svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Central point -->
+  <circle cx="30" cy="30" r="2.5" fill="#5c6bc0" opacity="0.15"/>
+
+  <!-- Six-pointed star pattern (hemp leaf) -->
+  <line x1="30" y1="30" x2="30" y2="5" stroke="#5c6bc0" stroke-width="1.5" opacity="0.12"/>
+  <line x1="30" y1="30" x2="52" y2="42" stroke="#5c6bc0" stroke-width="1.5" opacity="0.12"/>
+  <line x1="30" y1="30" x2="52" y2="18" stroke="#5c6bc0" stroke-width="1.5" opacity="0.12"/>
+  <line x1="30" y1="30" x2="30" y2="55" stroke="#5c6bc0" stroke-width="1.5" opacity="0.12"/>
+  <line x1="30" y1="30" x2="8" y2="42" stroke="#5c6bc0" stroke-width="1.5" opacity="0.12"/>
+  <line x1="30" y1="30" x2="8" y2="18" stroke="#5c6bc0" stroke-width="1.5" opacity="0.12"/>
+
+  <!-- Diagonal lines forming triangles -->
+  <line x1="30" y1="5" x2="52" y2="42" stroke="#5c6bc0" stroke-width="1" opacity="0.08"/>
+  <line x1="52" y1="42" x2="30" y2="55" stroke="#5c6bc0" stroke-width="1" opacity="0.08"/>
+  <line x1="30" y1="55" x2="8" y2="42" stroke="#5c6bc0" stroke-width="1" opacity="0.08"/>
+  <line x1="8" y1="42" x2="30" y2="5" stroke="#5c6bc0" stroke-width="1" opacity="0.08"/>
+
+  <!-- Small circles at intersections -->
+  <circle cx="30" cy="5" r="2" fill="#5c6bc0" opacity="0.1"/>
+  <circle cx="52" cy="42" r="2" fill="#5c6bc0" opacity="0.1"/>
+  <circle cx="52" cy="18" r="2" fill="#5c6bc0" opacity="0.1"/>
+  <circle cx="30" cy="55" r="2" fill="#5c6bc0" opacity="0.1"/>
+  <circle cx="8" cy="42" r="2" fill="#5c6bc0" opacity="0.1"/>
+  <circle cx="8" cy="18" r="2" fill="#5c6bc0" opacity="0.1"/>
+
+  <!-- Corner dots for seamless tiling -->
+  <circle cx="0" cy="0" r="2.5" fill="#5c6bc0" opacity="0.1"/>
+  <circle cx="60" cy="0" r="2.5" fill="#5c6bc0" opacity="0.1"/>
+  <circle cx="0" cy="60" r="2.5" fill="#5c6bc0" opacity="0.1"/>
+  <circle cx="60" cy="60" r="2.5" fill="#5c6bc0" opacity="0.1"/>
+</svg>

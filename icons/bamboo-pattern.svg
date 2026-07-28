@@ -1,0 +1,31 @@
+<!-- Bamboo Forest Pattern - For Arashiyama / Nature sections -->
+<svg viewBox="0 0 200 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Bamboo stalks -->
+  <rect x="30" y="0" width="8" height="300" rx="4" fill="#66bb6a" opacity="0.12"/>
+  <rect x="30" y="50" width="8" height="12" rx="4" fill="#4caf50" opacity="0.1"/>
+  <rect x="30" y="120" width="8" height="12" rx="4" fill="#4caf50" opacity="0.1"/>
+  <rect x="30" y="200" width="8" height="12" rx="4" fill="#4caf50" opacity="0.1"/>
+
+  <rect x="70" y="0" width="6" height="300" rx="3" fill="#81c784" opacity="0.1"/>
+  <rect x="70" y="80" width="6" height="10" rx="3" fill="#66bb6a" opacity="0.08"/>
+  <rect x="70" y="160" width="6" height="10" rx="3" fill="#66bb6a" opacity="0.08"/>
+  <rect x="70" y="240" width="6" height="10" rx="3" fill="#66bb6a" opacity="0.08"/>
+
+  <rect x="110" y="0" width="7" height="300" rx="3.5" fill="#66bb6a" opacity="0.12"/>
+  <rect x="110" y="40" width="7" height="11" rx="3.5" fill="#4caf50" opacity="0.1"/>
+  <rect x="110" y="130" width="7" height="11" rx="3.5" fill="#4caf50" opacity="0.1"/>
+  <rect x="110" y="210" width="7" height="11" rx="3.5" fill="#4caf50" opacity="0.1"/>
+
+  <rect x="150" y="0" width="6" height="300" rx="3" fill="#81c784" opacity="0.1"/>
+  <rect x="150" y="70" width="6" height="10" rx="3" fill="#66bb6a" opacity="0.08"/>
+  <rect x="150" y="170" width="6" height="10" rx="3" fill="#66bb6a" opacity="0.08"/>
+
+  <!-- Bamboo leaves -->
+  <path d="M34 50 Q50 35 65 42" stroke="#81c784" stroke-width="2" fill="none" opacity="0.3"/>
+  <path d="M34 120 Q55 108 70 115" stroke="#81c784" stroke-width="2" fill="none" opacity="0.3"/>
+  <path d="M114 40 Q130 28 145 35" stroke="#81c784" stroke-width="2" fill="none" opacity="0.3"/>
+  <path d="M114 130 Q128 118 140 125" stroke="#81c784" stroke-width="2" fill="none" opacity="0.3"/>
+  <path d="M74 80 Q90 68 105 75" stroke="#a5d6a7" stroke-width="2" fill="none" opacity="0.3"/>
+  <path d="M154 70 Q168 58 180 65" stroke="#a5d6a7" stroke-width="2" fill="none" opacity="0.3"/>
+  <path d="M154 170 Q168 158 178 165" stroke="#a5d6a7" stroke-width="2" fill="none" opacity="0.3"/>
+</svg>

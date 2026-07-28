@@ -1,0 +1,16 @@
+<!-- Seigaiha Wave Pattern - Seamless Background Tile -->
+<svg viewBox="0 0 80 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Full wave circles -->
+  <circle cx="40" cy="72" r="18" fill="#5c6bc0" opacity="0.08"/>
+  <circle cx="0" cy="72" r="18" fill="#5c6bc0" opacity="0.08"/>
+  <circle cx="80" cy="72" r="18" fill="#5c6bc0" opacity="0.08"/>
+
+  <!-- Half wave circles (top row) -->
+  <circle cx="20" cy="36" r="18" fill="#5c6bc0" opacity="0.08"/>
+  <circle cx="60" cy="36" r="18" fill="#5c6bc0" opacity="0.08"/>
+
+  <!-- Quarter wave circles (topmost) -->
+  <circle cx="0" cy="0" r="18" fill="#5c6bc0" opacity="0.08"/>
+  <circle cx="40" cy="0" r="18" fill="#5c6bc0" opacity="0.08"/>
+  <circle cx="80" cy="0" r="18" fill="#5c6bc0" opacity="0.08"/>
+</svg>

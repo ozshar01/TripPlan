@@ -1,0 +1,86 @@
+<!-- Mount Fuji with Cherry Blossoms - Hero Banner Illustration -->
+<svg viewBox="0 0 800 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Sky gradient -->
+  <defs>
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="320">
+      <stop offset="0%" stop-color="#fce4ec" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#f8bbd0" stop-opacity="0.2"/>
+    </linearGradient>
+    <linearGradient id="fujiGrad" x1="0" y1="0" x2="0" y2="200">
+      <stop offset="0%" stop-color="#5c6bc0" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#283593" stop-opacity="0.2"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Sky background -->
+  <rect width="800" height="320" fill="url(#skyGrad)"/>
+
+  <!-- Sun -->
+  <circle cx="620" cy="80" r="45" fill="#ef9a9a" opacity="0.3"/>
+  <circle cx="620" cy="80" r="35" fill="#ef5350" opacity="0.15"/>
+
+  <!-- Mountains layer (background) -->
+  <path d="M0 250 L180 140 L360 250 Z" fill="#7986cb" opacity="0.1"/>
+  <path d="M250 250 L420 160 L590 250 Z" fill="#7986cb" opacity="0.12"/>
+
+  <!-- Main Mount Fuji -->
+  <path d="M400 50 L120 260 L680 260 Z" fill="url(#fujiGrad)"/>
+
+  <!-- Snow cap -->
+  <path d="M400 50 L310 120 Q340 108 370 115 L400 95 L430 115 Q460 108 490 120 Z" fill="white" opacity="0.7"/>
+
+  <!-- Snow detail lines -->
+  <path d="M350 140 Q370 130 390 135" stroke="white" stroke-width="1.5" opacity="0.4"/>
+  <path d="M450 140 Q430 130 410 135" stroke="white" stroke-width="1.5" opacity="0.4"/>
+
+  <!-- Lake reflection -->
+  <path d="M200 260 Q300 275 400 270 Q500 265 600 280" stroke="#9fa8da" opacity="0.15" stroke-width="2"/>
+  <path d="M250 270 Q350 282 450 276 Q520 270 580 284" stroke="#9fa8da" opacity="0.1"/>
+
+  <!-- Ground / trees -->
+  <path d="M0 265 Q100 258 200 263 Q300 268 400 265 Q500 262 600 267 Q700 270 800 263 L800 320 L0 320 Z" fill="#c5e1a5" opacity="0.12"/>
+
+  <!-- Cherry blossom branch - top right -->
+  <g transform="translate(680, -10) rotate(-15)">
+    <path d="M0 40 Q30 20 60 15 Q90 10 120 25" stroke="#8d6e63" stroke-width="3" fill="none"/>
+    <path d="M40 25 Q55 10 70 8" stroke="#8d6e63" stroke-width="2" fill="none"/>
+    <!-- Blossoms -->
+    <circle cx="120" cy="25" r="8" fill="#f48fb1" opacity="0.7"/>
+    <circle cx="120" cy="25" r="4" fill="#f8bbd0"/>
+    <circle cx="105" cy="20" r="7" fill="#f48fb1" opacity="0.6"/>
+    <circle cx="105" cy="20" r="3.5" fill="#f8bbd0"/>
+    <circle cx="70" cy="8" r="9" fill="#f48fb1" opacity="0.7"/>
+    <circle cx="70" cy="8" r="4.5" fill="#f8bbd0"/>
+    <circle cx="55" cy="12" r="6" fill="#f48fb1" opacity="0.5"/>
+    <circle cx="30" cy="22" r="7" fill="#f48fb1" opacity="0.6"/>
+    <circle cx="30" cy="22" r="3.5" fill="#f8bbd0"/>
+    <circle cx="15" cy="32" r="6" fill="#f48fb1" opacity="0.5"/>
+    <circle cx="90" cy="16" r="5" fill="#f48fb1" opacity="0.4"/>
+    <!-- Falling petals -->
+    <ellipse cx="65" cy="40" rx="3" ry="2" fill="#f8bbd0" opacity="0.5" transform="rotate(30 65 40)"/>
+    <ellipse cx="130" cy="38" rx="2.5" ry="1.5" fill="#f48fb1" opacity="0.4" transform="rotate(-20 130 38)"/>
+    <ellipse cx="50" cy="45" rx="2" ry="1.5" fill="#f8bbd0" opacity="0.3"/>
+  </g>
+
+  <!-- Cherry blossom branch - bottom left -->
+  <g transform="translate(-10, 240) rotate(25)">
+    <path d="M0 0 Q30 -15 60 -20 Q90 -25 110 -10" stroke="#8d6e63" stroke-width="2.5" fill="none"/>
+    <path d="M45 -18 Q60 -30 75 -28" stroke="#8d6e63" stroke-width="1.5" fill="none"/>
+    <!-- Blossoms -->
+    <circle cx="110" cy="-10" r="7" fill="#f48fb1" opacity="0.6"/>
+    <circle cx="110" cy="-10" r="3.5" fill="#f8bbd0"/>
+    <circle cx="90" cy="-18" r="6" fill="#f48fb1" opacity="0.5"/>
+    <circle cx="60" cy="-20" r="7" fill="#f48fb1" opacity="0.6"/>
+    <circle cx="60" cy="-20" r="3.5" fill="#f8bbd0"/>
+    <circle cx="30" cy="-12" r="5.5" fill="#f48fb1" opacity="0.5"/>
+    <circle cx="15" cy="-3" r="6" fill="#f48fb1" opacity="0.5"/>
+    <!-- Falling petals -->
+    <ellipse cx="80" cy="-2" rx="2.5" ry="1.5" fill="#f8bbd0" opacity="0.4"/>
+    <ellipse cx="125" cy="-5" rx="2" ry="1.5" fill="#f48fb1" opacity="0.3"/>
+  </g>
+
+  <!-- Small birds -->
+  <path d="M150 60 Q155 55 160 60" stroke="#7986cb" stroke-width="1.5" fill="none" opacity="0.4"/>
+  <path d="M175 50 Q180 45 185 50" stroke="#7986cb" stroke-width="1.5" fill="none" opacity="0.3"/>
+  <path d="M165 70 Q170 65 175 70" stroke="#7986cb" stroke-width="1.2" fill="none" opacity="0.35"/>
+</svg>

@@ -1,0 +1,26 @@
+<!-- Japanese Fan (Uchiwa) - Decorative Icon for buttons and headers -->
+<svg viewBox="0 0 140 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fan shape -->
+  <path d="M70 110 Q20 80 5 30 Q5 5 70 5 Q135 5 135 30 Q120 80 70 110 Z" fill="#e74c3c" opacity="0.2"/>
+  <path d="M70 110 Q30 85 12 35 Q12 15 70 15 Q128 15 128 35 Q110 85 70 110 Z" fill="#e74c3c" opacity="0.12"/>
+
+  <!-- Fan ribs -->
+  <path d="M70 110 L25 30" stroke="#c0392b" stroke-width="1.5" opacity="0.2"/>
+  <path d="M70 110 L45 18" stroke="#c0392b" stroke-width="1.5" opacity="0.2"/>
+  <path d="M70 110 L70 8" stroke="#c0392b" stroke-width="1.5" opacity="0.2"/>
+  <path d="M70 110 L95 18" stroke="#c0392b" stroke-width="1.5" opacity="0.2"/>
+  <path d="M70 110 L115 30" stroke="#c0392b" stroke-width="1.5" opacity="0.2"/>
+
+  <!-- Concentric arcs -->
+  <path d="M45 90 Q70 100 95 90" stroke="#c0392b" stroke-width="1.5" opacity="0.15"/>
+  <path d="M32 72 Q70 85 108 72" stroke="#c0392b" stroke-width="1.5" opacity="0.15"/>
+  <path d="M22 52 Q70 68 118 52" stroke="#c0392b" stroke-width="1.5" opacity="0.15"/>
+  <path d="M14 32 Q70 50 126 32" stroke="#c0392b" stroke-width="1.5" opacity="0.15"/>
+
+  <!-- Handle -->
+  <rect x="66" y="108" width="8" height="12" rx="2" fill="#5d4037" opacity="0.3"/>
+
+  <!-- Center circle decoration -->
+  <circle cx="70" cy="45" r="12" fill="#e74c3c" opacity="0.15"/>
+  <circle cx="70" cy="45" r="6" fill="#e74c3c" opacity="0.1"/>
+</svg>

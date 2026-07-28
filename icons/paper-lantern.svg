@@ -1,0 +1,35 @@
+<!-- Paper Lantern (Chochin) - Decorative Icon -->
+<svg viewBox="0 0 120 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Hanging string -->
+  <line x1="60" y1="0" x2="60" y2="18" stroke="#5d4037" stroke-width="2"/>
+
+  <!-- Top cap -->
+  <rect x="48" y="16" width="24" height="6" rx="3" fill="#5d4037"/>
+
+  <!-- Lantern body -->
+  <ellipse cx="60" cy="85" rx="38" ry="62" fill="#e74c3c" opacity="0.5"/>
+  <ellipse cx="60" cy="85" rx="38" ry="62" fill="#ff6b6b" opacity="0.15"/>
+
+  <!-- Inner glow -->
+  <ellipse cx="60" cy="85" rx="28" ry="48" fill="#fff9c4" opacity="0.15"/>
+  <ellipse cx="60" cy="85" rx="18" ry="32" fill="#fff9c4" opacity="0.1"/>
+
+  <!-- Ribs -->
+  <path d="M60 23 Q45 50 42 85 Q41 100 60 147" stroke="#c0392b" stroke-width="1.5" opacity="0.3"/>
+  <path d="M60 23 Q75 50 78 85 Q79 100 60 147" stroke="#c0392b" stroke-width="1.5" opacity="0.3"/>
+  <path d="M60 23 Q52 48 48 85 Q47 105 60 147" stroke="#c0392b" stroke-width="1.5" opacity="0.25"/>
+  <path d="M60 23 Q68 48 72 85 Q73 105 60 147" stroke="#c0392b" stroke-width="1.5" opacity="0.25"/>
+
+  <!-- Horizontal rings -->
+  <ellipse cx="60" cy="55" rx="34" ry="8" stroke="#c0392b" stroke-width="1.5" opacity="0.3"/>
+  <ellipse cx="60" cy="85" rx="37" ry="9" stroke="#c0392b" stroke-width="1.5" opacity="0.3"/>
+  <ellipse cx="60" cy="115" rx="34" ry="8" stroke="#c0392b" stroke-width="1.5" opacity="0.3"/>
+
+  <!-- Bottom cap -->
+  <rect x="48" y="142" width="24" height="6" rx="3" fill="#5d4037"/>
+
+  <!-- Tassels -->
+  <line x1="52" y1="148" x2="50" y2="175" stroke="#5d4037" stroke-width="1.5"/>
+  <line x1="60" y1="148" x2="60" y2="175" stroke="#5d4037" stroke-width="1.5"/>
+  <line x1="68" y1="148" x2="70" y2="175" stroke="#5d4037" stroke-width="1.5"/>
+</svg>

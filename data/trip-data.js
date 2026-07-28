@@ -1,0 +1,2 @@
+window.TRIP_DATA = {
+};

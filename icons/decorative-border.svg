@@ -1,0 +1,5 @@
+<!-- Decorative Wave Border - For section dividers -->
+<svg viewBox="0 0 400 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 15 Q25 0 50 15 Q75 30 100 15 Q125 0 150 15 Q175 30 200 15 Q225 0 250 15 Q275 30 300 15 Q325 0 350 15 Q375 30 400 15" stroke="#e74c3c" stroke-width="2" fill="none" opacity="0.2"/>
+  <path d="M0 15 Q25 5 50 15 Q75 25 100 15 Q125 5 150 15 Q175 25 200 15 Q225 5 250 15 Q275 25 300 15 Q325 5 350 15 Q375 25 400 15" stroke="#5c6bc0" stroke-width="1.5" fill="none" opacity="0.12"/>
+</svg>
