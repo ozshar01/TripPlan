@@ -1,4 +1,4 @@
-const CACHE = 'japan-trip-shell-v3';
+const CACHE = 'japan-trip-shell-v4';
 const DATA_FILE = 'data/trip-data.js';
 const ASSETS = [
   './',

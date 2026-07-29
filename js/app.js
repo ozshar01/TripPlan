@@ -3,6 +3,42 @@
   // Japan Trip PWA - Main Application
   // ============================================
 
+  try {
+    boot();
+  } catch (err) {
+    showFatalError(err);
+  }
+
+  function showFatalError(err) {
+    console.error('Japan Trip PWA failed to start:', err);
+    const appEl = document.querySelector('#app');
+    if (!appEl) return;
+    appEl.innerHTML = `
+      <article class="card">
+        <h2>משהו השתבש בטעינת האפליקציה</h2>
+        <p>סביר שהנתונים האחרונים שסונכרנו פגומים או לא תואמים. אפשר לנסות לאפס את הנתונים המסונכרנים ולחזור לנתוני ברירת המחדל.</p>
+        <div class="actions">
+          <button class="btn" id="fatalResetBtn">איפוס נתונים מסונכרנים וטעינה מחדש</button>
+          <button class="btn secondary" id="fatalReloadBtn">טעינה מחדש בלבד</button>
+        </div>
+        <p class="meta">פרטי השגיאה: ${String((err && err.message) || err)}</p>
+      </article>`;
+    const resetBtn = document.querySelector('#fatalResetBtn');
+    if (resetBtn) {
+      resetBtn.onclick = () => {
+        try {
+          if (window.SheetsSync) window.SheetsSync.clearCache();
+        } catch {
+          /* ignore */
+        }
+        location.reload();
+      };
+    }
+    const reloadBtn = document.querySelector('#fatalReloadBtn');
+    if (reloadBtn) reloadBtn.onclick = () => location.reload();
+  }
+
+  function boot() {
   const D = window.TRIP_DATA;
   const STORAGE_KEY = 'japanTripStateV1';
 
@@ -556,18 +592,22 @@
 
   // --- Main Render ---
   function render() {
-    document.querySelectorAll('.tabs button').forEach((b) =>
-      b.classList.toggle('active', b.dataset.view === view)
-    );
-    ({
-      today: renderToday,
-      days: renderDays,
-      bookings: renderBookings,
-      food: renderFood,
-      hotels: renderHotels,
-      phrases: renderPhrases,
-      settings: renderSettings,
-    }[view] || renderToday)();
+    try {
+      document.querySelectorAll('.tabs button').forEach((b) =>
+        b.classList.toggle('active', b.dataset.view === view)
+      );
+      ({
+        today: renderToday,
+        days: renderDays,
+        bookings: renderBookings,
+        food: renderFood,
+        hotels: renderHotels,
+        phrases: renderPhrases,
+        settings: renderSettings,
+      }[view] || renderToday)();
+    } catch (err) {
+      showFatalError(err);
+    }
   }
 
   // --- Event Delegation ---
@@ -678,7 +718,8 @@
     });
   }
 
-  document.querySelector('#appTitle').textContent = D.settings['שם הטיול'] || 'הטיול שלי';
+  document.querySelector('#appTitle').textContent = (D.settings && D.settings['שם הטיול']) || 'הטיול שלי';
 
   render();
+  }
 })();

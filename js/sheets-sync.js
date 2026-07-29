@@ -261,8 +261,26 @@ window.SheetsSync = (() => {
     };
   }
 
+  function validate(data) {
+    const problems = [];
+    if (!data.settings || !data.settings['שם הטיול']) {
+      problems.push('לא נמצא "שם הטיול" בכרטיסיית "הגדרות" — ודא/י ששם העמודות הוא "שדה" ו"ערך".');
+    }
+    if (!Array.isArray(data.days) || data.days.length === 0) {
+      problems.push('לא נמצאו ימים בכרטיסיית "ימים".');
+    } else if (data.days.some((d) => !d.id || !d.date || Number.isNaN(d.day))) {
+      problems.push('יש שורה בכרטיסיית "ימים" עם מזהה, תאריך או מספר יום חסרים.');
+    }
+    if (problems.length) {
+      throw new Error(
+        'הנתונים מהגיליון לא תקינים, ולכן לא נשמרו (כדי לא לפגוע בנתונים הקיימים): ' + problems.join(' ')
+      );
+    }
+  }
+
   async function sync(spreadsheetIdOrUrl) {
     const data = await fetchAndTransform(spreadsheetIdOrUrl);
+    validate(data);
     localStorage.setItem(CACHE_KEY, JSON.stringify(data));
     setConfig({ spreadsheetId: extractSpreadsheetId(spreadsheetIdOrUrl) });
     return data;
