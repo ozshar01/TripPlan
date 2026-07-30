@@ -1,0 +1,31 @@
+<svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="320" height="200" rx="18" fill="#f6f1e8"/>
+
+  <!-- sheet body -->
+  <rect x="30" y="26" width="260" height="112" rx="10" fill="#ffffff" stroke="#e6ddd0" stroke-width="2"/>
+  <g stroke="#e6ddd0" stroke-width="2">
+    <line x1="30" y1="60" x2="290" y2="60"/>
+    <line x1="30" y1="86" x2="290" y2="86"/>
+    <line x1="30" y1="112" x2="290" y2="112"/>
+  </g>
+  <rect x="30" y="26" width="260" height="20" rx="8" fill="#4a5684"/>
+
+  <!-- tab strip along the bottom, 7 equal tabs -->
+  <g transform="translate(30,146)">
+    <g fill="#5a9e78">
+      <rect x="0"   y="0" width="34" height="20" rx="5"/>
+      <rect x="37"  y="0" width="34" height="20" rx="5"/>
+      <rect x="74"  y="0" width="34" height="20" rx="5"/>
+      <rect x="111" y="0" width="34" height="20" rx="5"/>
+      <rect x="148" y="0" width="34" height="20" rx="5"/>
+      <rect x="185" y="0" width="34" height="20" rx="5"/>
+      <rect x="222" y="0" width="34" height="20" rx="5"/>
+    </g>
+  </g>
+
+  <!-- magnifier emphasizing "exact names matter" -->
+  <g transform="translate(250,150)">
+    <circle cx="10" cy="10" r="11" fill="none" stroke="#e74c3c" stroke-width="4"/>
+    <line x1="18" y1="18" x2="30" y2="30" stroke="#e74c3c" stroke-width="4" stroke-linecap="round"/>
+  </g>
+</svg>

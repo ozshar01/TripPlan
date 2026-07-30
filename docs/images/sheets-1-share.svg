@@ -1,0 +1,39 @@
+<svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="320" height="200" rx="18" fill="#f6f1e8"/>
+
+  <!-- spreadsheet card -->
+  <g transform="translate(28,34)">
+    <rect x="0" y="0" width="130" height="132" rx="10" fill="#ffffff" stroke="#e6ddd0" stroke-width="2"/>
+    <rect x="0" y="0" width="130" height="24" rx="10" fill="#3f8a68"/>
+    <rect x="0" y="14" width="130" height="10" fill="#3f8a68"/>
+    <g stroke="#cfe3d7" stroke-width="2">
+      <line x1="0" y1="48" x2="130" y2="48"/>
+      <line x1="0" y1="70" x2="130" y2="70"/>
+      <line x1="0" y1="92" x2="130" y2="92"/>
+      <line x1="0" y1="114" x2="130" y2="114"/>
+      <line x1="44" y1="24" x2="44" y2="132"/>
+      <line x1="87" y1="24" x2="87" y2="132"/>
+    </g>
+  </g>
+
+  <!-- arrow -->
+  <g stroke="#29304f" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="172" y1="100" x2="222" y2="100"/>
+    <path d="M210,86 L226,100 L210,114"/>
+  </g>
+
+  <!-- share glyph -->
+  <g transform="translate(246,50)">
+    <circle cx="14" cy="14" r="14" fill="#e74c3c"/>
+    <circle cx="14" cy="72" r="14" fill="#e74c3c"/>
+    <circle cx="46" cy="43" r="14" fill="#e74c3c"/>
+    <line x1="14" y1="14" x2="46" y2="43" stroke="#e74c3c" stroke-width="4"/>
+    <line x1="14" y1="72" x2="46" y2="43" stroke="#e74c3c" stroke-width="4"/>
+  </g>
+
+  <!-- link chip -->
+  <g transform="translate(60,178)">
+    <rect x="-40" y="-8" width="200" height="24" rx="12" fill="#ffffff" stroke="#29304f" stroke-width="2"/>
+    <path d="M-24,4 h16 M-8,4 a6,6 0 0 0 0,-12 h-6 M-8,4 a6,6 0 0 1 0,12 h-6" fill="none" stroke="#29304f" stroke-width="2.4" stroke-linecap="round"/>
+  </g>
+</svg>
