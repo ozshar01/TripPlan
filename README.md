@@ -1,4 +1,4 @@
-# PWA לתכנון טיולים מבוססת Excel / Google Sheets
+אפליקציה לתכנון טיולים בתצורת PWA עם תמיכה ב Excel / Google Sheets
 
 ## עריכת התוכן
 
