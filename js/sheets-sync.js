@@ -168,6 +168,12 @@ window.SheetsSync = (() => {
       byName[n] = gvizToRows(jsons[i]);
     });
 
+    // Generic key/value map, driven entirely by the sheet's own row labels.
+    // Recognized by js/app.js today: שם הטיול, תאריך התחלה/סיום, אזור זמן, מטבח,
+    // שפה (page lang, e.g. "he"), כיוון ("rtl"/"ltr"),
+    // שם שפת הביטויים (label for the phrases tab, e.g. "יפנית"),
+    // קוד קול (speech synthesis BCP-47 code, e.g. "ja-JP", "ko-KR").
+    // Any other row here is simply ignored by the app — safe to add freely.
     const settings = {};
     byName[TABS.settings].forEach((r) => {
       settings[r['שדה']] = r['ערך'];

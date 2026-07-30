@@ -42,6 +42,24 @@
   const D = window.TRIP_DATA;
   const STORAGE_KEY = 'japanTripStateV1';
 
+  // Apply page language/direction from settings instead of the hardcoded
+  // values in index.html, so a non-Hebrew/non-RTL trip renders correctly.
+  document.documentElement.lang = D.settings['שפה'] || 'he';
+  document.documentElement.dir =
+    String(D.settings['כיוון'] || 'rtl').toLowerCase() === 'ltr' ? 'ltr' : 'rtl';
+
+  // Label shown on the phrases tab and in its aria-labels/messages.
+  // Falls back to "יפנית" so existing sheets keep working unchanged.
+  function phraseLangLabel() {
+    return D.settings['שם שפת הביטויים'] || 'יפנית';
+  }
+
+  // BCP-47 code used for speech synthesis (e.g. ja-JP, ko-KR, fr-FR).
+  // Falls back to ja-JP so existing sheets keep working unchanged.
+  function phraseVoiceLang() {
+    return D.settings['קוד קול'] || 'ja-JP';
+  }
+
   let state = JSON.parse(
     localStorage.getItem(STORAGE_KEY) ||
       '{"done":{},"booking":{},"notes":{},"favorites":{}}'
@@ -144,7 +162,7 @@
     ['bookings', 'הזמנות'],
     ['food', 'אוכל'],
     ['hotels', 'מלונות'],
-    ['phrases', 'יפנית'],
+    ['phrases', phraseLangLabel()],
     ['settings', 'הגדרות'],
   ];
 
@@ -400,12 +418,14 @@
         .join('');
   }
 
-  // --- Japanese Voice Functions ---
+  // --- Voice Functions ---
   function japaneseVoice() {
+    const code = phraseVoiceLang();
+    const prefix = code.split('-')[0].toLowerCase();
     const voices = window.speechSynthesis?.getVoices() || [];
     return (
-      voices.find((v) => v.lang === 'ja-JP') ||
-      voices.find((v) => String(v.lang).toLowerCase().startsWith('ja')) ||
+      voices.find((v) => v.lang === code) ||
+      voices.find((v) => String(v.lang).toLowerCase().startsWith(prefix)) ||
       null
     );
   }
@@ -417,13 +437,14 @@
     }
     window.speechSynthesis.cancel();
     const u = new SpeechSynthesisUtterance(text);
-    u.lang = 'ja-JP';
+    u.lang = phraseVoiceLang();
     u.rate = slow ? 0.72 : 0.9;
     u.pitch = 1;
     u.volume = 1;
     const v = japaneseVoice();
     if (v) u.voice = v;
-    u.onerror = () => alert('לא ניתן להשמיע כרגע. ודאו שמותקן קול יפני במכשיר.');
+    u.onerror = () =>
+      alert(`לא ניתן להשמיע כרגע. ודאו שמותקן קול מתאים (${phraseLangLabel()}) במכשיר.`);
     window.speechSynthesis.speak(u);
 
     // Add speaking animation to the parent card
@@ -468,7 +489,7 @@
         <article class="card phrase-card ${categoryClass(p.category)}">
           <span class="badge">${esc(p.category)}</span>
           <h3>${esc(p.he)}</h3>
-          <button class="japanese-text" data-speak="${encodeURIComponent(p.ja)}" aria-label="השמעת המשפט ביפנית">${esc(
+          <button class="japanese-text" data-speak="${encodeURIComponent(p.ja)}" aria-label="השמעת המשפט ב${esc(phraseLangLabel())}">${esc(
             p.ja
           )}</button>
           <p style="color:var(--muted);font-style:italic">${esc(p.roman)}</p>
