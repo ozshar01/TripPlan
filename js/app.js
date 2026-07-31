@@ -70,6 +70,13 @@
 
   const app = document.querySelector('#app');
   const tabs = document.querySelector('#tabs');
+  const dialogCloseBtn = document.querySelector('#dialogCloseBtn');
+  if (dialogCloseBtn) {
+    dialogCloseBtn.addEventListener('click', () => {
+      const dialogEl = document.querySelector('#dialog');
+      if (dialogEl) dialogEl.close();
+    });
+  }
 
   // --- SVG Icon System ---
   const ICONS = {
@@ -136,6 +143,19 @@
       "'": '&#39;',
     }[m]));
 
+  // Only allow safe link schemes for sheet-controlled URL fields (website,
+  // booking links). Blocks javascript:/data:/vbscript: injection via a
+  // spreadsheet cell. Returns '#' (a harmless no-op link) if disallowed.
+  const ALLOWED_URL_SCHEMES = ['http:', 'https:', 'mailto:', 'tel:'];
+  const safeUrl = (u) => {
+    try {
+      const parsed = new URL(String(u ?? '').trim(), window.location.href);
+      return ALLOWED_URL_SCHEMES.includes(parsed.protocol) ? parsed.href : '#';
+    } catch {
+      return '#';
+    }
+  };
+
   const fmt = (d) =>
     d
       ? new Date(d + 'T12:00:00').toLocaleDateString('he-IL', {
@@ -167,7 +187,7 @@
   ];
 
   tabs.innerHTML = tabList
-    .map((t) => `<button data-view="${t[0]}">${ICONS[t[0]] || ''} ${t[1]}</button>`)
+    .map((t) => `<button data-view="${t[0]}">${ICONS[t[0]] || ''} ${esc(t[1])}</button>`)
     .join('');
 
   tabs.onclick = (e) => {
@@ -193,9 +213,9 @@
         <p>${esc(e.description)}</p>
         ${e.transport ? `<span class="badge">${evtType.icon || ''} ${esc(e.transport)}</span>` : ''}
         <div class="actions">
-          ${e.mapsQuery ? `<a class="btn secondary" target="_blank" href="${maps(e.mapsQuery)}">${ICONS.pin} ${ICONS.external} ניווט</a>` : ''}
+          ${e.mapsQuery ? `<a class="btn secondary" target="_blank" rel="noopener noreferrer" href="${maps(e.mapsQuery)}">${ICONS.pin} ${ICONS.external} ניווט</a>` : ''}
           <label class="check">
-            <input type="checkbox" data-done="${e.id}" ${done ? 'checked' : ''}> בוצע
+            <input type="checkbox" data-done="${esc(e.id)}" ${done ? 'checked' : ''}> בוצע
           </label>
         </div>
       </div>`;
@@ -279,9 +299,9 @@
         <p><strong>מומלץ:</strong> ${esc(r.recommended)}</p>
         <p>${esc(r.notes)}</p>
         <div class="actions">
-          <a class="btn secondary" target="_blank" href="${maps(r.mapsQuery || r.name)}">${ICONS.pin} ${ICONS.external} Google Maps</a>
-          ${r.website ? `<a class="btn secondary" target="_blank" href="${esc(r.website)}">${ICONS.external} אתר</a>` : ''}
-          <button class="btn ${isFav ? 'green' : 'secondary'}" data-fav="${r.id}">${isFav ? '★ נמחק' : '☆ חביב'}</button>
+          <a class="btn secondary" target="_blank" rel="noopener noreferrer" href="${maps(r.mapsQuery || r.name)}">${ICONS.pin} ${ICONS.external} Google Maps</a>
+          ${r.website ? `<a class="btn secondary" target="_blank" rel="noopener noreferrer" href="${safeUrl(r.website)}">${ICONS.external} אתר</a>` : ''}
+          <button class="btn ${isFav ? 'green' : 'secondary'}" data-fav="${esc(r.id)}">${isFav ? '★ נמחק' : '☆ חביב'}</button>
         </div>
       </article>`;
   }
@@ -312,7 +332,7 @@
             </div>
             <h2>${esc(d.title)}</h2>
             <p>${ICONS.pin} ${esc(d.city)} • עומס ${esc(d.load)}</p>
-            <button class="btn" data-open-day="${d.id}">פתיחת היום ${ICONS.calendar}</button>
+            <button class="btn" data-open-day="${esc(d.id)}">פתיחת היום ${ICONS.calendar}</button>
           </article>`
         ).join('')}
       </div>`;
@@ -339,7 +359,7 @@
         ${b
           .map(
             (x) => `
-          <article class="card" data-status="${state.booking[x.id] || x.status}">
+          <article class="card" data-status="${esc(state.booking[x.id] || x.status)}">
             <div style="display:flex;align-items:center;justify-content:space-between">
               <h3>${esc(x.name)}</h3>
               <span class="booking-status-dot ${(state.booking[x.id] || x.status) === 'הוזמן' ? 'booked' : 'open'}"></span>
@@ -350,8 +370,8 @@
             <p><strong>יעד:</strong> ${fmt(x.deadline)} | <strong>עלות:</strong> ${esc(x.cost)}</p>
             <p>${esc(x.notes)}</p>
             <div class="actions">
-              ${x.url ? `<a class="btn secondary" target="_blank" href="${esc(x.url)}">${ICONS.external} הזמנה</a>` : ''}
-              <button class="btn" data-book="${x.id}">${
+              ${x.url ? `<a class="btn secondary" target="_blank" rel="noopener noreferrer" href="${safeUrl(x.url)}">${ICONS.external} הזמנה</a>` : ''}
+              <button class="btn" data-book="${esc(x.id)}">${
                 (state.booking[x.id] || x.status) === 'הוזמן' ? 'ביטול סימון' : 'סימון כהוזמן'
               }</button>
             </div>
@@ -411,7 +431,7 @@
           ${h.phone ? `<p style="margin-top:4px">טלפון: ${esc(h.phone)}</p>` : ''}
           <p style="margin-top:8px">${esc(h.notes)}</p>
           <div class="actions">
-            <a class="btn" target="_blank" href="${maps(h.mapsQuery || h.name)}">${ICONS.pin} ${ICONS.external} ניווט למלון</a>
+            <a class="btn" target="_blank" rel="noopener noreferrer" href="${maps(h.mapsQuery || h.name)}">${ICONS.pin} ${ICONS.external} ניווט למלון</a>
           </div>
         </article>`
         )
