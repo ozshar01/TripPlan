@@ -166,6 +166,14 @@
       .replace(/[\u200E\u200F\u202A-\u202E\u2066-\u2069]/g, '')
       .trim();
     if (/^\d{4}-\d{2}-\d{2}$/.test(s)) return s;
+    // Safety net for data already cached before the sheets-sync.js fix:
+    // Google's gviz endpoint represents dates as "Date(2026,8,21)" text,
+    // with a 0-indexed month (8 = September).
+    const gviz = s.match(/^Date\((\d+),(\d+),(\d+)/);
+    if (gviz) {
+      const [, y, mo, dd] = gviz;
+      return `${y}-${String(Number(mo) + 1).padStart(2, '0')}-${dd.padStart(2, '0')}`;
+    }
     const m = s.match(/^(\d{1,2})[./-](\d{1,2})[./-](\d{4})$/);
     if (m) {
       const [, dd, mm, yyyy] = m;

@@ -73,16 +73,33 @@ window.SheetsSync = (() => {
     return String(n).padStart(2, '0');
   }
 
+  // Google's gviz endpoint represents date/datetime cells as a literal
+  // *string* like "Date(2026,8,21)" or "Date(2026,8,21,11,30,0)" — not an
+  // actual JS Date object — because the out:json response has to stay
+  // valid-ish JSON, which can't contain a raw Date. Note the month is
+  // 0-indexed in this notation (8 = September), matching JS Date() convention.
+  function parseGvizDateString(v) {
+    if (typeof v !== 'string') return null;
+    const m = v.match(/^Date\((\d+),(\d+),(\d+)(?:,(\d+),(\d+),(\d+))?\)$/);
+    if (!m) return null;
+    const [y, mo, d, h, mi, s] = m.slice(1).map((x) => (x === undefined ? undefined : Number(x)));
+    return new Date(y, mo, d, h || 0, mi || 0, s || 0);
+  }
+
   // Turns a single gviz table cell into a plain value, normalizing dates
   // and times to the ISO-ish strings the rest of the app expects
-  // ("YYYY-MM-DD" / "HH:MM"). Branches on the cell's actual runtime type
-  // (Date object / array), NOT the column's declared type — gviz reports
-  // one type per whole column, which is wrong for mixed-content columns
-  // like the settings sheet's "ערך" column (text rows + date rows together).
+  // ("YYYY-MM-DD" / "HH:MM"). Branches on the cell's actual runtime value
+  // (Date object / gviz date-string / array), NOT the column's declared
+  // type — gviz reports one type per whole column, which is wrong for
+  // mixed-content columns like the settings sheet's "ערך" column (text
+  // rows + date rows together).
   function cellValue(cell) {
     if (!cell) return '';
-    const v = cell.v;
+    let v = cell.v;
     if (v === null || v === undefined) return cell.f != null ? cell.f : '';
+
+    const parsedFromString = parseGvizDateString(v);
+    if (parsedFromString) v = parsedFromString;
 
     if (v instanceof Date) {
       const hasTime = v.getHours() || v.getMinutes() || v.getSeconds();
